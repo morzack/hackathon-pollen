@@ -15,4 +15,4 @@ The goal of the website, as a whole, is to be easy to use for _anybody_, enablin
 We also developed schematics for a physical device which can be used to locally measure air quality and communicate using a bluetooth chip with a user's phone or computer.
 The intended purpose of the ground station is to allow for more precise data collection for people, as there is quite a difference between air pollution at one's home and in a more regional level.
 Ideally, with the support of Google Maps's API we would be able to display data in a more specific way.
-[!schematic](docs/images/schematic.png)
+![schematic](docs/images/schematic.png)

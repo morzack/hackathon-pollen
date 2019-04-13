@@ -17,8 +17,8 @@ else {
 }
 
 function setLocation(position) {
-    currentLoc.innerHTML = "Latitude: " + position.coords.latitude +
-    "<br>Longitude: " + position.coords.longitude;
+    currentLoc.innerHTML = "<p>Latitude: " + position.coords.latitude +
+    "<br>Longitude: " + position.coords.longitude + "</p>";
     currentLat = position.coords.latitude;
     currentLon = position.coords.longitude;
     loadGeoData

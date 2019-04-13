@@ -8,6 +8,10 @@ h1, h2, h3 {
     border-bottom: 2px solid #bbbbbb;
 }
 
+p, th, tr, li {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 .top p {
     margin-left: 10px;
     margin-right: 10px;

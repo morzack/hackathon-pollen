@@ -21,6 +21,7 @@ function setLocation(position) {
     "<br>Longitude: " + position.coords.longitude;
     currentLat = position.coords.latitude;
     currentLon = position.coords.longitude;
+    loadGeoData();
     getPollutionData();
 }
 
@@ -90,6 +91,12 @@ function createWarnings(arr) {
     out+=makeBulleted(createWarningItem("nitrogen dioxide", no2, 53, 361, 1250));
     out+="</ul>";
     return out;
+}
+
+function loadGeoData() {
+    var commentForm = document.getElementById("commentForm");
+    document.forms["commentForm"].lat.value = currentLat;
+    document.forms["commentForm"].lon.value = currentLon;
 }
 
 function createReadout(arr) {

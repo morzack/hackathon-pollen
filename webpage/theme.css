@@ -1,5 +1,5 @@
 :root {
-    --header-bg-color: #61988e;
+    --header-bg-color: #49b4e6;
     --header-text-color: #eeeeee;
 }
 
@@ -32,7 +32,7 @@ html {
 }
 
 body {
-    background-color: #dfdbbd;
+    background-color: #ffffff;
     margin: 0px;
 }
 

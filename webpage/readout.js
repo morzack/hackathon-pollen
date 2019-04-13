@@ -45,7 +45,7 @@ function getPollutionData() {
 }
 
 function createTable(arr, categories) {
-    var out = "<table><tr><th>Pollutant</th><th>Reading</th></tr>";
+    var out = "<table align=\"center\"><tr><th>Pollutant</th><th>Reading</th></tr>";
     for (var i=0; i<categories.length; i++) {
         out+="<tr>";
         out+="<td>"+arr[categories[i]]['pollutant_description']+"</td>";
@@ -63,16 +63,16 @@ function makeBulleted(i) {
 function createWarningItem(item, concentration, low, medium, high) {
     concentration*=2;
     if (concentration>=low && concentration<medium) {
-        return "Low levels of "+item;
+        return "<div class='low'>Low levels of "+item+"</div>";
     }
     else if (concentration>=medium && concentration<high) {
-        return "Moderate levels of "+item+", be wary";
+        return "<div class='moderate'>Moderate levels of "+item+", be wary"+"</div>";
     }
     else if (concentration>=high) {
-        return "High levels of "+item+", try to avoid prolonged exposure to outside air!";
+        return "<div class='extreme'>High levels of "+item+", try to avoid prolonged exposure to outside air!"+"</div>";
     }
     else {
-        return "No warnings for "+item+" today.";
+        return "<div class='none'>No warnings for "+item+" today."+"</div>";
     }
 }
 

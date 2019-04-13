@@ -1,6 +1,7 @@
 // set html in page
 var currentLoc = document.getElementById("current-location");
 var pollutionReadout = document.getElementById("readout");
+var warningReadout = document.getElementById("warnings");
 
 var currentLat = 0;
 var currentLon = 0;
@@ -52,9 +53,42 @@ function createTable(arr, categories) {
     return out;
 }
 
+function makeBulleted(i) {
+    return "<li>" + i + "</li>";
+}
+
+function createWarningItem(item, concentration, low, medium, high) {
+    switch (concentration) {
+        case (concentration>=low && concentration<medium):
+            return "Low levels of "+item;
+        case (concentration>=medium && concentration<high):
+            return "Moderate levels of "+item+", be wary";
+        case (concentration>=high):
+            return "High levels of "+item+", try to avoid prolonged exposure to outside air!";
+        default:
+            return "No warnings for "+item+" today.";
+    }
+}
+
+function createWarnings(arr) {
+    var out = "<ul>";
+    var co = arr['co']['concentration']/1000;
+    out+=makeBulleted(createWarningItem("carbon monoxide", co, 15, 35, 70));
+    var so2 = arr['so2']['concentration'];
+    out+=makeBulleted(createWarningItem("sulfur dioxide", so2, 35, 75, 186));
+    var o3 = arr['o3']['concentration'];
+    out+=makeBulleted(createWarningItem("ozone", o3, 55, 70, 105));
+    var pm10 = arr['pm10']['concentration'];
+    out+=makeBulleted(createWarningItem("inhalable particles", pm10, 54, 255, 425));
+    var no2 = arr['no2']['concentration'];
+    out+=makeBulleted(createWarningItem("nitrogen dioxide", no2, 53, 361, 1250));
+    out+="</ul>";
+    return out;
+}
+
 function createReadout(arr) {
     data = arr;
     var pollutants = arr['pollutants'];
-
     pollutionReadout.innerHTML = createTable(pollutants, ['co','no2','o3','pm10','pm25','so2']);
+    warningReadout.innerHTML = createWarnings(pollutants);
 }

@@ -2,6 +2,8 @@
 
 Project for packhacks 2019 to display pollen counts in an area in an easy to interpret way
 
+Health data sourced from: [wikipedia](https://en.wikipedia.org/wiki/Air_quality_index)
+
 ## App/Website
 
 The website should be able to pull data from either the physical component or some online API that gets data.

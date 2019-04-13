@@ -30,6 +30,9 @@ function getAPIKey() {
 
 function getPollutionData() {
     var xmlhttp = new XMLHttpRequest();
+    // next lines will override location to kanpur india for extra pollution
+    // currentLat=26.4471566;
+    // currentLon=80.268343;
     var requestURL = "https://api.breezometer.com/baqi/?lat="+currentLat+"&lon="+currentLon+"&key="+getAPIKey();
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
@@ -58,15 +61,18 @@ function makeBulleted(i) {
 }
 
 function createWarningItem(item, concentration, low, medium, high) {
-    switch (concentration) {
-        case (concentration>=low && concentration<medium):
-            return "Low levels of "+item;
-        case (concentration>=medium && concentration<high):
-            return "Moderate levels of "+item+", be wary";
-        case (concentration>=high):
-            return "High levels of "+item+", try to avoid prolonged exposure to outside air!";
-        default:
-            return "No warnings for "+item+" today.";
+    concentration*=2;
+    if (concentration>=low && concentration<medium) {
+        return "Low levels of "+item;
+    }
+    else if (concentration>=medium && concentration<high) {
+        return "Moderate levels of "+item+", be wary";
+    }
+    else if (concentration>=high) {
+        return "High levels of "+item+", try to avoid prolonged exposure to outside air!";
+    }
+    else {
+        return "No warnings for "+item+" today.";
     }
 }
 

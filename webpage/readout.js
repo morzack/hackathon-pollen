@@ -21,7 +21,7 @@ function setLocation(position) {
     "<br>Longitude: " + position.coords.longitude;
     currentLat = position.coords.latitude;
     currentLon = position.coords.longitude;
-    loadGeoData();
+    loadGeoData
     getPollutionData();
 }
 

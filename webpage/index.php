@@ -21,7 +21,7 @@
             <!-- <h2>Pollutant readout</h2> -->
             <h3>Local warnings</h3>
             <div id="warnings"></div>
-            <h3>Nearby comments</h3>
+            <h3>Recent comments</h3>
             <div id="comments">
                 <ul>
                 <?php
@@ -30,7 +30,8 @@
                 fclose($myFile);
                 $dataSplit = explode("\n", $dataRead);
                 for ($i=count($dataSplit)-1; $i>max(0, count($dataSplit)-6); $i--) {
-                    echo "<li>" . $dataSplit[$i-1] . "</li>";
+                    $newData = explode("|", $dataSplit[$i-1]);
+                    echo "<li>" . $newData[0] . "</li>";
                 }
                 ?>
                 </ul>

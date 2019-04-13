@@ -1,15 +1,18 @@
 # hackathon-pollen
 
-Project for packhacks 2019 to display pollen counts in an area in an easy to interpret way
+Project for packhacks 2019 to display pollution level in an area in an easy to interpret way
 
 Health data sourced from: [wikipedia](https://en.wikipedia.org/wiki/Air_quality_index)
 
 ## App/Website
 
-The website should be able to pull data from either the physical component or some online API that gets data.
-It should present the data to the use in an easy to interpret way -- If on a phone push notifications warning of high pollen count could be useful.
+The website (mobile friendly!) pulls from an online API to collect pollution data and then parses it into easy to understand terms.
+There is a "chat" component as well which allows for users to communicate with each other in a local context.
+The goal of the website, as a whole, is to be easy to use for _anybody_, enabling people to truly understand and be more connected with the things that affect them.
 
 ## Physical component
 
-The physical component will be some kind of sensor stand that can connect to teh internet to help provide more specialized data.
-It would need to have an IOT board, housing, and sensor.
+We also developed schematics for a physical device which can be used to locally measure air quality and communicate using a bluetooth chip with a user's phone or computer.
+The intended purpose of the ground station is to allow for more precise data collection for people, as there is quite a difference between air pollution at one's home and in a more regional level.
+Ideally, with the support of Google Maps's API we would be able to display data in a more specific way.
+[!schematic](docs/images/schematic.png)

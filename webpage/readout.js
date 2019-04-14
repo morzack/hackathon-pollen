@@ -32,8 +32,8 @@ function getAPIKey() {
 function getPollutionData() {
     var xmlhttp = new XMLHttpRequest();
     // next lines will override location to kanpur india for extra pollution
-    // currentLat=26.4471566;
-    // currentLon=80.268343;
+    // currentLat=34.0207305;
+    // currentLon=-118.6919114;
     var requestURL = "https://api.breezometer.com/baqi/?lat="+currentLat+"&lon="+currentLon+"&key="+getAPIKey();
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
